@@ -1,0 +1,69 @@
+﻿
+@model UrunViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ürünler</title>
+</head>
+<body>
+    <h1>Ürünler</h1>
+
+    <h2>Ürün Listesi</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Ürün Adı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var urun in Model.urunler)
+            {
+                <tr>
+                    <td>@urun.UrunAdi</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Satışlar</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Satış Tarihi</th>
+                <th>Ürün Adı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var satis in Model.satislar)
+            {
+                <tr>
+                    <td>@satis.SatisTarihi</td>
+                    <td>@satis.Urun.UrunAdi</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Satış Detayları</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Satış ID</th>
+                <th>Miktar</th>
+                <th>Ürün Adı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var satisDetay in Model.satisDetaylari)
+            {
+                <tr>
+                    <td>@satisDetay.SatisID</td>
+                    <td>@satisDetay.Miktar</td>
+                    <td>@satisDetay.Urun.UrunAdi</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
